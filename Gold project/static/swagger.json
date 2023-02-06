@@ -1,0 +1,214 @@
+{
+    
+    "openapi": "3.0.3",
+    "info":{ 
+        "title":"Project Binar Challenge Gold - 5",
+        "version":"1.0.0",
+        "description": "API untuk melakukan cleansing data",
+        "contact": {
+            "name": "Vivi Fitriani",
+            "email": "viviftriani04@gmail.com"
+        }
+    },
+    "servers":[
+        {
+            "url": "/"
+         }
+    ],
+    "externalDocs": {
+        "description": "Github Code - Binar Gold Challenge"
+    },
+    "paths":{
+        "/":{
+            "get":{
+                "summary": "Welcome",
+                "description": "Hello,Welcome!",
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Misunderstood"
+                    },
+                    "401":{
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    },
+                    "500":{
+                        "description": "Server Error"
+                    }
+                }
+            }
+        },
+        "/tweet":{
+            "get":{
+                "summary": "List",
+                "description": "List of Tweets",
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Misunderstood"
+                    },
+                    "401":{
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    },
+                    "500":{
+                        "description": "Server Error"
+                    }
+                }
+            },
+            "post":{
+                "summary": "Input the text",
+                "description": "Post a text",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "text":{
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Misunderstood"
+                    },
+                    "401":{
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    },
+                    "500":{
+                        "description": "Server Error"
+                    }
+                }
+            }
+        },
+        "/tweet/{tweet_id}":{
+            "get":{
+                "summary": "Get tweet by id",
+                "description": "Get tweet by id from database",
+                "parameters": [
+                    {
+                        "name": "tweet_id",
+                        "in": "path",
+                        "required": true,
+                        "description": "tweet_id",
+                        "schema":{
+                            "type":"integer"
+                        }
+
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Misunderstood"
+                    },
+                    "401":{
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    },
+                    "500":{
+                        "description": "Server Error"
+                    }
+                }
+            },
+            "delete":{
+                "summary": "Delete",
+                "description": "Delete existing tweet from database",
+                "parameters": [
+                    {
+                        "name": "tweet_id",
+                        "in": "path",
+                        "required": true,
+                        "description": "tweet_id",
+                        "schema":{
+                            "type":"integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Misunderstood"
+                    },
+                    "401":{
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    },
+                    "500":{
+                        "description": "Server Error"
+                    }
+                }
+            }
+
+        },
+        "/tweet/csv":{
+            "post":{
+                "summary": "Input a csv file",
+                "description": "Post a csv file here!",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "file":{
+                                        "type": "string",
+                                        "format": "base64"
+                                    }
+                                }
+   
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Misunderstood"
+                    },
+                    "401":{
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    },
+                    "500":{
+                        "description": "Server Error"
+                    }
+                }
+            }
+        }
+
+    }
+}
